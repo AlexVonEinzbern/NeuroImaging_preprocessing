@@ -2,7 +2,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 from scipy import ndimage
 import ants
-#import antspynet
+import antspynet
 
 def denoise_image(image, k):
     """
@@ -49,9 +49,7 @@ def kmeans_segmentation(data, k):
     seg[data>0]=segTissue.labels_+1
     return seg
 
-"""
-def brain_extraction(image, modality):
+def get_brain_mask(image, modality, th):
     img = ants.from_numpy(image)
-    probabilitu_brain_mask = antspynet.utilities.brain_extraction(img, modality=modality)
-    return probabilitu_brain_mask
-"""
+    mask = antspynet.utilities.brain_extraction(img, modality=modality)
+    image[mask<th]
