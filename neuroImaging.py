@@ -3,6 +3,17 @@ from sklearn.cluster import KMeans
 from scipy import ndimage
 import ants
 import antspynet
+import jax.numpy as jnp
+import jax.scipy as jsp
+
+def convolved_filter(image):
+    """
+    NEED GPU
+    """
+    x = np.linspace(-3, 3, 7)
+    kernel = jsp.stats.norm.pdf(x) * jsp.stats.norm.pdf(x[:, None])
+    kernel[:,:,None]
+    return jsp.signal.concolve(image, kernel)
 
 def median_filter(image, k):
     """
@@ -48,8 +59,17 @@ def kmeans_segmentation(data, k):
     seg[data>0]=segTissue.labels_+1
     return seg
 
+def kmeans_segmentation_ants(image, k):
+    """
+    
+    """
+
+    data = ants.from_numpy(image)
+    return ants.kmeans_segmentation(data, k)
+
 def get_brain_mask(image, modality, th):
     """
+    NEED NVIDIA GPU
     Parameters: image : ndarray
                 modality:
                     "t1"
