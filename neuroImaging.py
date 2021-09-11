@@ -5,6 +5,7 @@ import ants
 import antspynet
 import jax.numpy as jnp
 import jax.scipy as jsp
+from matplotlib import pyplot as plt
 
 def convolved_filter(image):
     """
@@ -35,7 +36,7 @@ def normalization_zscore(image):
     Returns: ndarray
     """
     for i in range(image.shape[0]):
-        zscore = (image-image[image>0].mean())/image[image>0].std()
+        zscore = (image[image>0]-image[image>0].mean())/image[image>0].std()
     return zscore
 
 def kmeans_segmentation(data, k):
