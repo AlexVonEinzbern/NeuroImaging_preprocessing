@@ -28,10 +28,16 @@ def median_filter(image, k):
     """
     return ndimage.filters.median_filter(image, size=k)
 
-def weiner_filter(image, k):
+def wiener_filter(image, k):
     """
-    """
+    Parameters: image: ndarray
+                k: size of neighbours
 
+    Description: Apply Wiener filter.
+
+    Returns: ndarray
+            wiener filtered result with the same shape as image
+    """
     return wiener(image, k)
     
 def normalization_zscore(image):
