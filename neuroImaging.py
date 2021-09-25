@@ -1,6 +1,7 @@
 import numpy as np
 from sklearn.cluster import KMeans
 from scipy import ndimage
+from scipy.signal.signaltools import wiener
 import ants
 import antspynet
 import jax.numpy as jnp
@@ -26,6 +27,12 @@ def median_filter(image, k):
     Returns: ndarray
     """
     return ndimage.filters.median_filter(image, size=k)
+
+def weiner_filter(image, k):
+    """
+    """
+
+    return wiener(image, k)
     
 def normalization_zscore(image):
     """
