@@ -1,18 +1,10 @@
-import jax.scipy as jsp
+from scipy import ndimage
 from numpy import linspace
+from scipy.stats import norm
 
 def convolve(img, k):
-    """
-    NEED GPU
-    
-    Parameters: img: ndarray
-                k: size of neighbour
-    
-    Description: Apply convolve filter. 
-
-    Returns: ndarray
-    """
-    x = linspace(-k, k, 2*k+1)
-    kernel = jsp.stats.norm.pdf(x) * jsp.stats.norm.pdf(x[:, None])
-    kernel[:,:,None]
-    return jsp.signal.convolve(img, kernel)
+	"""
+	"""
+	x = linspace(-k, k, (2*k)+1)
+	kernel = norm.pdf(x)*norm.pdf(x[:,None])
+	return ndimage.convolve(img, kernel[:,:,None])
