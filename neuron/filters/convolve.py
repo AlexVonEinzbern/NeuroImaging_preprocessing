@@ -11,6 +11,6 @@ def convolve(img, k):
 
   	Returns: ndarray
 	"""
-	x = linspace(-k, k, (2*k)+1)
+	x = linspace(-k, k, 2*k+1)
 	kernel = norm.pdf(x)*norm.pdf(x[:,None])
 	return ndimage.convolve(img, kernel[:,:,None])
