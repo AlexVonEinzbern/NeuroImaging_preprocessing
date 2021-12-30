@@ -7,9 +7,9 @@ def convolve(img, k):
 	Parameters: img: ndarray
 				k: size of neighbour
     
-  Description: Apply convolve filter. 
+	Description: Apply convolve filter. 
 
-  Returns: ndarray
+  	Returns: ndarray
 	"""
 	x = linspace(-k, k, (2*k)+1)
 	kernel = norm.pdf(x)*norm.pdf(x[:,None])
