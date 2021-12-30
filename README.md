@@ -8,5 +8,5 @@
 ### TODO:
 * add new functionalities
 * better documentation
-* Tutorials
+* Tutorials (Add more examples)
 ---
