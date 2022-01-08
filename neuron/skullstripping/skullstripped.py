@@ -6,6 +6,6 @@ def skullstripped(img):
 	Description: returns a pyrobex NifTI tuple
 				* stripped : Image of the extracted brain
 				* mask : Image of a binary mask of the brain  
-   Returns: pyrobex.io.NiftiImage
+    Returns: pyrobex.io.NiftiImage
 	"""
 	return robex(img)
