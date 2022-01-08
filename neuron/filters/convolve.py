@@ -5,7 +5,7 @@ from scipy.stats import norm
 def convolve(img, k):
 	"""
 	Parameters: img: ndarray
-				k: size of neighbour
+                k: size of neighbour
     
 	Description: Apply convolve filter. 
 
